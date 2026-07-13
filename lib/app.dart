@@ -13,9 +13,9 @@ class StreakLearnApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<LessonState>.value(value: locator<LessonState>()),
-        ChangeNotifierProvider<QuizState>.value(value: locator<QuizState>()),
-        ChangeNotifierProvider<StreakState>.value(value: locator<StreakState>()),
+        ChangeNotifierProvider(create: (_) => LessonState()),
+        ChangeNotifierProvider(create: (_) => QuizState()),
+        ChangeNotifierProvider(create: (_) => StreakState()),
       ],
       child: MaterialApp(
         title: 'StreakLearn',
