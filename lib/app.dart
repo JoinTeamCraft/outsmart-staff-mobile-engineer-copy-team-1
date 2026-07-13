@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/theme/app_theme.dart';
-import 'core/di/service_locator.dart';
 import 'core/state/lesson_state.dart';
 import 'core/state/quiz_state.dart';
 import 'core/state/streak_state.dart';

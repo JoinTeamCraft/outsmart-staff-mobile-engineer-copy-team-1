@@ -22,18 +22,28 @@ class QuizState extends ChangeNotifier {
   int get answeredCount => _answeredCount;
 
   void startQuizForLesson(String lessonId) {
+    if (lessonId.isEmpty) {
+      return;
+    }
+
     _activeLessonId = lessonId;
     _selectedAnswerIndex = -1;
+    _answeredCount = 0;
     notifyListeners();
   }
 
   void selectAnswer(int index) {
+    if (index < 0 || _activeLessonId.isEmpty || _selectedAnswerIndex != -1) {
+      return;
+    }
+
     _selectedAnswerIndex = index;
     _answeredCount += 1;
     notifyListeners();
   }
 
   void resetQuiz() {
+    _activeLessonId = '';
     _selectedAnswerIndex = -1;
     _answeredCount = 0;
     notifyListeners();
